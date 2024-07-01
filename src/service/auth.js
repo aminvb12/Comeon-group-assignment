@@ -10,7 +10,7 @@ export function loginApiService(username, password) {
       },
     });
     if (status === 200) resolve(data);
-    else reject(JSON.parse(data));
+    else reject(data ? JSON.parse(data) : {});
   });
 }
 
@@ -23,6 +23,6 @@ export function logoutApiService(username) {
       },
     });
     if (status === 200) resolve(data);
-    else reject(JSON.parse(data));
+    else reject(data ? JSON.parse(data) : {});
   });
 }

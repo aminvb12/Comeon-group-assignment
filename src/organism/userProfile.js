@@ -22,7 +22,7 @@ const UserProfile = ({ user, logout, search }) => {
             <div style={{ display: "flex", alignItems: "center" }}>
               <Image src={avatarPath} avatar />
 
-              <span style={{ paddingLeft: 8 }}>
+              <span data-test-id="fullname" style={{ paddingLeft: 8 }}>
                 <strong>{fullName}</strong>
                 <br />
                 {event}

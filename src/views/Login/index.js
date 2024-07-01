@@ -67,7 +67,7 @@ const Login = (props) => {
   return (
     <div className="login" style={{ display: "block" }}>
       {formError && (
-        <div className="ui grid centered">
+        <div className="ui grid centered" data-test-id="error-prompt">
           <Message error style={{ maxWidth: 450 }}>
             <Message.Header>Error</Message.Header>
             <p>{formError}</p>
@@ -89,11 +89,15 @@ const Login = (props) => {
                   placeholder="Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
+                  data-test-id="username-field"
                 />
                 <i className="user icon"></i>
               </div>
               {errors["username"] && (
-                <div className="ui pointing red basic label">
+                <div
+                  data-test-id="username-required"
+                  className="ui pointing red basic label"
+                >
                   {errors["username"]}
                 </div>
               )}
@@ -109,18 +113,22 @@ const Login = (props) => {
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  data-test-id="password-field"
                 />
                 <i className="lock icon"></i>
               </div>
               {errors["password"] && (
-                <div className="ui pointing red basic label">
+                <div
+                  data-test-id="password-required"
+                  className="ui pointing red basic label"
+                >
                   {errors["password"]}
                 </div>
               )}
             </div>
             <div className="field">
               <div className="ui icon input">
-                <input type="submit" value="Login" />
+                <input type="submit" value="Login" data-test-id="sign-in-btn" />
                 <i className="right chevron icon"></i>
               </div>
             </div>
