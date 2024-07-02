@@ -99,16 +99,16 @@ To run Cypress end-to-end tests:
 2. **Run Cypress:**
 
    ```bash
-   npm run cy:open
+   npm test
    ```
 
    Or with yarn:
 
    ```bash
-   yarn cy:open
+   yarn test
    ```
 
-   This will open the Cypress Test Runner.
+   This will execute the Cypress Test Runner test suites and generate test report in which you can find it in reports directory in cypress directory.
 
 ### Project Structure
 
@@ -119,6 +119,13 @@ react-webpack-cypress-app/
 │   └── ...
 ├── src/
 │   ├── components/
+│   ├── assets/
+│   ├── context/
+│   ├── hoc/
+│   ├── hooks/
+│   ├── organism/
+│   ├── service/
+│   ├── view/
 │   ├── App.js
 │   ├── index.js
 │   └── ...
