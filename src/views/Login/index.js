@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Message } from "semantic-ui-react";
 
 import { withNavigate } from "../../hoc/navigation";
@@ -14,7 +14,7 @@ const Login = (props) => {
 
   const [formError, setFormError] = useState("");
 
-  const { setUserProfile } = useUserProfile();
+  const { setUserProfile, isAuthenticated } = useUserProfile();
 
   const findUserAvatar = (username) => {
     const name = username.toLowerCase();
@@ -51,7 +51,6 @@ const Login = (props) => {
         avatar: findUserAvatar(user.player.name),
         event: user.player.event,
       });
-      props.navigate("games");
     } catch (error) {
       setFormError(error.error);
     }
@@ -64,6 +63,13 @@ const Login = (props) => {
       doLogin();
     }
   };
+
+  // This is for the reason to make sure that user context and localstorage has been filled for authentication reason
+
+  useEffect(() => {
+    if (isAuthenticated) props.navigate("games-view");
+  }, [isAuthenticated]);
+
   return (
     <div className="login" style={{ display: "block" }}>
       {formError && (

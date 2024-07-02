@@ -18,6 +18,13 @@ describe("Login Page", () => {
     cy.get("[data-test-id='username-required']").should("exist");
     cy.get("[data-test-id='password-required']").should("exist");
   });
+  /*****************/
+  it("should not be able to access to the main game view/page if user is not logged-in or not authorized", () => {
+    cy.removeFromLocalstorage("--cached-profile--");
+    cy.visit("/games-view");
+
+    cy.location("pathname").should("eq", "/");
+  });
 
   /*****************/
   it("should not login with invalid credentials", () => {
@@ -67,7 +74,11 @@ describe("Login Page", () => {
 
       cy.wait("@getLogin", { timeout: 60000 });
 
-      cy.location("pathname").should("eq", "/games");
+      cy.location("pathname").should("eq", "/games-view");
+
+      cy.getLocalStorage("--cached-profile--").then((user) => {
+        expect(user).to.deep.equal(data.cachedProfile);
+      });
 
       cy.get('[data-test-id="fullname"] strong').should(
         "have.text",

@@ -17,6 +17,7 @@ const GameList = ({ games, openGameModal }) => {
         borderTop: "1px solid #eee",
         paddingTop: 16,
       }}
+      data-test-id="games-list"
     >
       {games.map((game, _) => (
         <GameCard

@@ -9,7 +9,7 @@ import {
 
 export const ModalComponent = ({ open, onClose, title, content }) => {
   return (
-    <Modal dimmer={true} open={open} onClose={onClose}>
+    <Modal data-test-id="modal" dimmer={true} open={open} onClose={onClose}>
       <ModalHeader>{title}</ModalHeader>
       <ModalContent>{content}</ModalContent>
       <ModalActions>

@@ -1,4 +1,10 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  useMemo,
+} from "react";
 
 // Create the context
 const UserProfileContext = createContext();
@@ -11,11 +17,22 @@ export const UserProfileProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    localStorage.setItem("--cached-profile--", JSON.stringify(userProfile));
+    if (Object.keys(userProfile).length) {
+      localStorage.setItem("--cached-profile--", JSON.stringify(userProfile));
+    } else {
+      localStorage.removeItem("--cached-profile--");
+    }
   }, [userProfile]);
 
+  const isAuthenticated = useMemo(
+    () => (userProfile.name ? true : false),
+    [userProfile]
+  );
+
   return (
-    <UserProfileContext.Provider value={{ userProfile, setUserProfile }}>
+    <UserProfileContext.Provider
+      value={{ userProfile, setUserProfile, isAuthenticated }}
+    >
       {children}
     </UserProfileContext.Provider>
   );

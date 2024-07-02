@@ -34,6 +34,7 @@ const UserProfile = ({ user, logout, search }) => {
               color="black"
               style={{ marginTop: 24 }}
               onClick={logout}
+              data-test-id="logout-button"
             >
               <Icon name="log out" />
               Log Out

@@ -19,11 +19,13 @@ function Games(props) {
   const [selectedGame, setSelectedGame] = useState({}); //selected game for play
   const [gameModal, setGameModal] = useState(false);
 
-  const { userProfile } = useUserProfile();
+  const { userProfile, setUserProfile } = useUserProfile();
 
   const doLogout = React.useCallback(async () => {
     try {
       await logoutApiService(userProfile.username);
+      await setUserProfile({});
+
       props.navigate("/", { replace: true });
     } catch (error) {}
   }, []);
