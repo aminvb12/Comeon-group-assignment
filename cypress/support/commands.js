@@ -50,7 +50,7 @@ Cypress.Commands.add("initialInterceptContext", () => {
   //starts a new session with the given username and password
   //sends a POST request to the login endpoint with the given email and password
 
-  cy.fixture("login/case1_1_B").then((data) => {
+  cy.fixture("case1_1_B").then((data) => {
     cy.intercept("GET", "**/games", {
       statusCode: 200,
       body: data.games,

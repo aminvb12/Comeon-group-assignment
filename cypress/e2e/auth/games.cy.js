@@ -11,7 +11,7 @@ describe("Games Test Suite", () => {
   });
   /*****************/
   it("should have categories list", () => {
-    cy.fixture("login/case1_1_B").then((_data) => {
+    cy.fixture("case1_1_B").then((_data) => {
       cy.get("@categoriesItemList")
         .its("length")
         .should("eq", _data.categories.length);
@@ -20,7 +20,7 @@ describe("Games Test Suite", () => {
 
   /*******************/
   it("should be able to click on category and filter games by category click", () => {
-    cy.fixture("login/case1_1_B").then((_data) => {
+    cy.fixture("case1_1_B").then((_data) => {
       cy.get("@categoriesItemList").last().click();
 
       cy.get('[data-test-id="games-list"]')
@@ -49,7 +49,7 @@ describe("Games Test Suite", () => {
 
   /*******************/
   it("should be able to search among games by name query", () => {
-    cy.fixture("login/case1_1_B").then((_data) => {
+    cy.fixture("case1_1_B").then((_data) => {
       cy.get('[data-test-id="search-field"]').type("Warp Wreckers");
       cy.get('[data-test-id="games-list"]')
         .should("exist")
@@ -66,7 +66,7 @@ describe("Games Test Suite", () => {
   });
 
   it("should be able to play a game", () => {
-    cy.fixture("login/case1_1_B").then((_data) => {
+    cy.fixture("case1_1_B").then((_data) => {
       cy.get('[data-test-id="games-list"]')
         .should("exist")
         .children()

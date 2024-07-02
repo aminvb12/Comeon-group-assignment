@@ -28,7 +28,7 @@ describe("Login Page", () => {
 
   /*****************/
   it("should not login with invalid credentials", () => {
-    cy.fixture("login/case1_1_A").then((_authResponseBody) => {
+    cy.fixture("case1_1_A").then((_authResponseBody) => {
       //intercepts
 
       cy.intercept("POST", "**/login", {
@@ -51,7 +51,7 @@ describe("Login Page", () => {
   it("should login successfully with valid credentials", () => {
     //intercepts
 
-    cy.fixture("login/case1_1_B").then((data) => {
+    cy.fixture("case1_1_B").then((data) => {
       cy.intercept("POST", "**/login", {
         statusCode: 200,
         body: data.authResponse,

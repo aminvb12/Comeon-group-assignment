@@ -14,7 +14,6 @@ describe("Logout", () => {
 
     cy.location("pathname").should("eq", "/");
     cy.getLocalStorage("--cached-profile--").then((user) => {
-      console.log(user);
       expect(user).to.equal(null);
     });
   });
