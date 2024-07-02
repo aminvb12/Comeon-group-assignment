@@ -28,8 +28,8 @@ These instructions will get you a copy of the project up and running on your loc
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/react-webpack-cypress-app.git
-   cd react-webpack-cypress-app
+   git clone https://github.com/aminvb12/Comeon-group-assignment.git
+   cd Comeon-group-assignment
    ```
 
 2. **Install dependencies:**
