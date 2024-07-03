@@ -140,6 +140,15 @@ react-webpack-cypress-app/
 └── README.md
 ```
 
+### Future Improvements
+
+```
+1- Improve search functionality in order to execute specific API call for a better search experience
+2- Improve filter functionality in order to execute specific API call for a better filter experience
+3- Establish CI/CD pipeline for test, report and deployment
+4- Connect tools like XRay to Cypress core engine for better QA automation and Task management
+```
+
 ### Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests to us.
